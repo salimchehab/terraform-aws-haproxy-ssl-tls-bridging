@@ -1,0 +1,18 @@
+Apr 24 16:28:32 ip-172-31-29-125 haproxy[6095]: Server bk_myapp/backend-2 is UP, reason: Layer6 check passed, check duration: 3ms. 2 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.
+Apr 24 16:28:32 ip-172-31-29-125 haproxy[6095]: Server bk_myapp/backend-2 is UP, reason: Layer6 check passed, check duration: 3ms. 2 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.
+Apr 24 16:28:35 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58416 GMT:24/Apr/2020:16:28:35 +0000 body:s2112 request:POST /users/2 HTTP/1.1
+Apr 24 16:28:37 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58418 GMT:24/Apr/2020:16:28:37 +0000 body:s2112 request:POST /users/2 HTTP/1.1
+Apr 24 16:28:38 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58420 GMT:24/Apr/2020:16:28:38 +0000 body:s2112 request:POST /users/2 HTTP/1.1
+Apr 24 16:28:38 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58422 GMT:24/Apr/2020:16:28:38 +0000 body:s2112 request:POST /users/2 HTTP/1.1
+Apr 24 16:28:39 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58424 GMT:24/Apr/2020:16:28:39 +0000 body:s2112 request:POST /users/2 HTTP/1.1
+Apr 24 16:28:39 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58426 GMT:24/Apr/2020:16:28:39 +0000 body:s2112 request:POST /users/2 HTTP/1.1
+Apr 24 16:29:06 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58428 GMT:24/Apr/2020:16:29:06 +0000 body:- request:GET /users/2 HTTP/1.1
+Apr 24 16:29:25 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58430 GMT:24/Apr/2020:16:29:25 +0000 body:- request:GET /users/2 HTTP/1.1
+Apr 24 16:29:49 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58432 GMT:24/Apr/2020:16:29:49 +0000 body:s2112 request:POST /users/2 HTTP/1.1
+Apr 24 16:30:01 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58434 GMT:24/Apr/2020:16:30:01 +0000 body:data request:POST /users/2 HTTP/1.1
+Apr 24 16:30:02 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58436 GMT:24/Apr/2020:16:30:02 +0000 body:data request:POST /users/2 HTTP/1.1
+Apr 24 16:30:41 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58438 GMT:24/Apr/2020:16:30:41 +0000 body:data request:POST /users/2 HTTP/1.1
+Apr 24 16:30:43 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58440 GMT:24/Apr/2020:16:30:43 +0000 body:data request:POST /users/2 HTTP/1.1
+Apr 24 16:30:44 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58442 GMT:24/Apr/2020:16:30:44 +0000 body:data request:POST /users/2 HTTP/1.1
+Apr 24 16:30:50 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58444 GMT:24/Apr/2020:16:30:50 +0000 body:- request:GET /users/2 HTTP/1.1
+Apr 24 16:30:52 ip-172-31-29-125 haproxy[6095]: frontend:ft_myapp/ip-172-31-29-125/172.31.29.125:443 client:172.31.10.211:58446 GMT:24/Apr/2020:16:30:52 +0000 body:- request:GET /users/2 HTTP/1.1
