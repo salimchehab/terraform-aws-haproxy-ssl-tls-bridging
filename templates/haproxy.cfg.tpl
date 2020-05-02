@@ -46,19 +46,19 @@ frontend stats
     stats uri /stats
     stats refresh 10s
 
-frontend ft_myapp
+frontend http-in
+    bind *:80
+	redirect scheme https code 301 if !{ ssl_fc }
+
+frontend https-in
 	bind *:443 ssl crt ${crt}
-	# redirect from http to https if not made with an SSL connection
-	redirect scheme https if !{ ssl_fc }
 	# allow access to request body
 	option http-buffer-request
 	# capture slot with a max length 40000 and reference 0
     declare capture request len 40000
     http-request capture req.body id 0
-	# log format for request body
-    # log-format {"%[capture.req.hdr(0)]"}
-	log-format frontend:%f/%H/%fi:%fp\ client:%ci:%cp\ GMT:%T\ body:%[capture.req.hdr(0)]\ request:%r
-
+	# possible log format for request body: log-format {"%[capture.req.hdr(0)]"}
+	log-format "%ci:%cp [%tr] %ft %b/%s %TR/%Tw/%Tc/%Tr/%Ta %ST %B %CC %CS %tsc %ac/%fc/%bc/%sc/%rc %sq/%bq %hr %hs %%{+Q}r"
 	default_backend bk_myapp
 
 backend bk_myapp
