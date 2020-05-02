@@ -45,7 +45,6 @@ frontend stats
     stats enable
     stats uri /stats
     stats refresh 10s
-    stats admin if LOCALHOST
 
 frontend ft_myapp
 	bind *:443 ssl crt ${crt}

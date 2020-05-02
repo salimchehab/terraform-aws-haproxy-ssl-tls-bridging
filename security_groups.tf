@@ -46,6 +46,16 @@ resource "aws_security_group" "haproxy" {
     cidr_blocks = local.private_ips_cidr_blocks
   }
 
+  ingress {
+    description = "Allow stats page from testing node."
+    from_port   = 8404
+    to_port     = 8404
+    protocol    = "tcp"
+    cidr_blocks = [
+      var.testing_node_ip,
+    ]
+  }
+
   egress {
     description = "Allow all outgoing traffic."
     from_port   = 0
