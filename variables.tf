@@ -3,6 +3,12 @@ variable "testing_node_ip" {
   type        = string
 }
 
+variable "stats_uri_port" {
+  description = "The HAProxy stats uri port to listen to."
+  type        = number
+  default     = 8404
+}
+
 variable "zone_name" {
   description = "Route53 zone name (e.g. my-awesome-domain.com)."
   type        = string

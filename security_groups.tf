@@ -48,8 +48,8 @@ resource "aws_security_group" "haproxy" {
 
   ingress {
     description = "Allow stats page from testing node."
-    from_port   = 8404
-    to_port     = 8404
+    from_port   = var.stats_uri_port
+    to_port     = var.stats_uri_port
     protocol    = "tcp"
     cidr_blocks = [
       var.testing_node_ip,

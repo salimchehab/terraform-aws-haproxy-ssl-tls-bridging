@@ -41,7 +41,7 @@ defaults
 	errorfile 504 /etc/haproxy/errors/504.http
 
 frontend stats
-    bind *:8404
+    bind *:${stats_uri_port}
     stats enable
     stats uri /stats
     stats refresh 10s
