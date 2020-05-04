@@ -47,3 +47,30 @@ locals {
   subnet_id_default_eu_central_1b = data.aws_subnet.default_eu-central-1b.id
   subnet_id_default_eu_central_1c = data.aws_subnet.default_eu-central-1c.id
 }
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Generate HAProxy config from template cfg file
+# ----------------------------------------------------------------------------------------------------------------------
+data "template_file" "haproxy" {
+  template = file("./templates/haproxy.cfg.tpl")
+
+  vars = {
+    stats_uri_port = var.stats_uri_port
+    flask_port     = "5000"
+    crt            = "/home/ubuntu/flask.local.app.pem"
+    ca-file        = "/home/ubuntu/EC2CA.pem"
+    maxconn        = "32"
+    domain         = var.zone_name
+    backend-1      = aws_instance.backend-1.tags.Name
+    backend-2      = aws_instance.backend-2.tags.Name
+  }
+}
+
+resource "null_resource" "update_haproxy_cfg" {
+  triggers = {
+    template = data.template_file.haproxy.rendered
+  }
+  provisioner "local-exec" {
+    command = "echo '${data.template_file.haproxy.rendered}' > haproxy.cfg"
+  }
+}

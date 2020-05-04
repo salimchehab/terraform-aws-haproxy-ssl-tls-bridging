@@ -34,9 +34,13 @@ resource "aws_instance" "haproxy" {
   ]
   subnet_id                   = local.subnet_id_default_eu_central_1a
 
-  user_data = file("./install_haproxy.sh")
-
-  tags = {
+  user_data  = file("./install_haproxy.sh")
+  # copy generated generated haproxy.cfg file to /etc/haproxy/haproxy.cfg
+  provisioner "file" {
+    source      = "./haproxy.cfg"
+    destination = "/etc/haproxy/haproxy.cfg"
+  }
+  tags       = {
     Name      = "HAProxy"
     Env       = "Sandbox"
     OS        = "Ubuntu"
@@ -129,32 +133,5 @@ resource "aws_instance" "client-1" {
     Env       = "Sandbox"
     OS        = "Ubuntu"
     Terraform = true
-  }
-}
-
-# ----------------------------------------------------------------------------------------------------------------------
-# Generate HAProxy config from template cfg file
-# ----------------------------------------------------------------------------------------------------------------------
-data "template_file" "haproxy" {
-  template = file("./templates/haproxy.cfg.tpl")
-
-  vars = {
-    stats_uri_port = var.stats_uri_port
-    flask_port     = "5000"
-    crt            = "/home/ubuntu/flask.local.app.pem"
-    ca-file        = "/home/ubuntu/EC2CA.pem"
-    maxconn        = "32"
-    domain         = var.zone_name
-    backend-1      = aws_instance.backend-1.tags.Name
-    backend-2      = aws_instance.backend-2.tags.Name
-  }
-}
-
-resource "null_resource" "update_haproxy_cfg" {
-  triggers = {
-    template = data.template_file.haproxy.rendered
-  }
-  provisioner "local-exec" {
-    command = "echo '${data.template_file.haproxy.rendered}' > haproxy.cfg"
   }
 }
